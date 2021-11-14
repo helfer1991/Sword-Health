@@ -1,10 +1,15 @@
 .bmi-result {
   text-align: center;
   font-weight: bold;
-  font-size: 2em;
-  color: red;
+  font-size: 4em;
+  color: blue;
 }
 
 .bmi-calc {
-  color: green;
+  color: white;
+  display: flex
+}
+
+.bmi-minus {
+  font-size: 300px;
 }
