@@ -1,16 +1,19 @@
 .bmi-result {
   text-align: center;
   font-weight: bold;
-  font-size: 4em;
-  color: black;
+  font-size: 20em;
+  color: green;
 }
 
-.bmi-calc {
-  color: black;
-  display: flex
+.bmi-CENAS {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 500px;
 }
 
 .bmi-plus {
   font-size: 300px;
-  text-align: center;
+  color: grey;
+  display: flex;
 }
