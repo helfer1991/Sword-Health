@@ -2,14 +2,15 @@
   text-align: center;
   font-weight: bold;
   font-size: 4em;
-  color: blue;
+  color: black;
 }
 
 .bmi-calc {
-  color: white;
+  color: black;
   display: flex
 }
 
-.bmi-minus {
+.bmi-plus {
   font-size: 300px;
+  text-align: center;
 }
