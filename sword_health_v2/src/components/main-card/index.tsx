@@ -1,0 +1,1 @@
+export { MainArticleCard } from './main-card';
