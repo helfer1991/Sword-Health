@@ -41,11 +41,11 @@ export const ArticlesList: React.FC<ArticlesListProps> = ({ localStorageKey }) =
     }
 
     return (
-        <Container>
+        <Container data-testid="articles-list">
             {filteredArticles.length > 0  && <MainArticleCard data={filteredArticles[0]} />}
             <CategoriesWrapper>
                 <CategoriesParagraph>Categories</CategoriesParagraph>
-                {categoriesList.map(category => <CategoryButton isSelected={category === chosenCategory} onClick={() => handleFilterCategory(category)} key={category}>{category}</CategoryButton>)}
+                {categoriesList.map(category => <CategoryButton data-testid="category-filter-button" isSelected={category === chosenCategory} onClick={() => handleFilterCategory(category)} key={category}>{category}</CategoryButton>)}
             </CategoriesWrapper>
             <CardsWrapper>
                 {filteredArticles.slice(0, isVisible).map((article, index) => index > 0 && <ArticleCard data={article} key={`${article.title}-${index}`} />)}

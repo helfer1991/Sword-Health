@@ -3,30 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { AuthContextProvider, AuthContext} from '../../../context/AuthContext';
 import { BrowserRouter } from 'react-router-dom';
 import { Modal } from '../modal';
-import { useLogin } from '../../../hooks/useLogin';
 import type { User } from '../../../context/AuthContext';
-
-
-// Mock the localStorage functions
-const localStorageMock = (() => {
-  let store: { [key: string]: string } = {};
-  return {
-    getItem: (key: string) => store[key],
-    setItem: (key: string, value: string) => {
-      store[key] = value.toString();
-    },
-    removeItem: (key: string) => {
-      delete store[key];
-    },
-    clear: () => {
-      store = {};
-    }
-  };
-})();
-
-Object.defineProperty(window, 'localStorage', {
-  value: localStorageMock
-});
 
 const mockData = {
   title: 'Test Article',
@@ -35,14 +12,8 @@ const mockData = {
   image: 'test.jpg',
   details: 'Test details'
 };
-  
-const mockUser = {
-    username: 'testuser',
-    password: 'testpassword',
-    role: 'User',
-};
 
-const mockUser2 = {
+const mockUser = {
     username: 'testuser2',
     password: 'testpassword2',
     role: 'User',
@@ -58,7 +29,7 @@ const getMockAuthContextValue = (userType: User) => {
     };
   
     return mockAuthContextValue;
-  };
+};
 
 describe('Modal', () => {
     const mockOnClose = jest.fn();
@@ -99,34 +70,10 @@ describe('Modal', () => {
         });
 
         it('renders the bookmark button', () => {
-            /*const getItemMock = jest.fn().mockReturnValueOnce(null);
-            const setItemMock = jest.fn();
-            Object.defineProperty(window, 'localStorage', { value: { getItem: getItemMock, setItem: setItemMock } });
-        
-            render(
-                <Modal data={mockData} show onClose={mockOnClose} />,
-                {
-                wrapper: ({ children }) =>
-                    <BrowserRouter>
-                    <AuthContext.Provider value={getMockAuthContextValue(mockUser)}>
-                        {children}
-                    </AuthContext.Provider>
-                    </BrowserRouter>
-                }
-            );*/
             const bookmarkButton = screen.getByTestId('bookmark-button');
         
-            /*fireEvent.click(bookmarkButton);*/
-        
-            //expect(setItemMock).toHaveBeenCalledWith('bookmark-Test user-Test title', JSON.stringify(mockData));
             expect(bookmarkButton).toHaveTextContent('Bookmark');
             expect(bookmarkButton).toBeInTheDocument();
-        
-            /*fireEvent.click(bookmarkButton);
-        
-            expect(getItemMock).toHaveBeenCalledWith('bookmark-Test user-Test title');
-            expect(setItemMock).toHaveBeenCalledWith('bookmark-Test user-Test title', null);
-            expect(bookmarkButton).toHaveTextContent('Bookmark');*/
         });
 
         it('renders the unbookmark button', () => {
@@ -156,7 +103,7 @@ describe('Modal', () => {
                 {
                   wrapper: ({ children }) =>
                     <BrowserRouter>
-                      <AuthContext.Provider value={getMockAuthContextValue(mockUser2)}>
+                      <AuthContext.Provider value={getMockAuthContextValue(mockUser)}>
                         {children}
                       </AuthContext.Provider>
                     </BrowserRouter>

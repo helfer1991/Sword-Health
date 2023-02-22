@@ -13,5 +13,6 @@ export const Bookmarks: React.FC = () => {
                 Bookmarks
             </Title>
             <ArticlesList localStorageKey={`bookmark-${getUser()?.username}`} />
-        </div>);
+        </div>
+    );
 }

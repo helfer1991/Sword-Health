@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLogin } from '../../hooks/useLogin';
 import { useNavigate} from 'react-router-dom';
 
-import { Container, Wrapper, Title, Description, ContentWrapper, TextWrapper, Image, ButtonWrapper, Button } from './styles';
+import { Container, Wrapper, Title, Description, Details, ContentWrapper, TextWrapper, Image, ButtonWrapper, Button } from './styles';
 import image from '../../assets/logo.png';
 
 type ArticleProps = {
@@ -45,7 +45,7 @@ export const Modal: React.FC<ArticleProps> = ({ data, show, onClose }) => {
                 <ContentWrapper>
                     <TextWrapper>
                             <Description>{data.description}</Description>
-                            <Description>{data.details}</Description>
+                            <Details>{data.details}</Details>
                     </TextWrapper>
                 <Image src={imgSrc} alt="modal-image" />
                 </ContentWrapper>

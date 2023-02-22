@@ -15,7 +15,7 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
     background-color: #fff;
     border-radius: 8px;
-    padding: 12px;
+    padding: 24px;
     width: 500px;
 `;
 
@@ -33,16 +33,25 @@ export const TextWrapper = styled.div`
 
 export const Image = styled.img`
     height: 150px;
+    margin-left: 12px;
     width: 150px;
 `;
 
 export const Title = styled.h2`
-    font-size: 24px;
+    font-size: 32px;
 `;
 
 export const Description = styled.p`
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 12px;
+`;
+
+export const Details = styled.p`
     font-size: 16px;
     line-height: 1.5;
+    margin-bottom: 12px;
 `;
 
 export const ButtonWrapper = styled.span`
