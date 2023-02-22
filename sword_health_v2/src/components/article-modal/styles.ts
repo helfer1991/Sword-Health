@@ -23,6 +23,12 @@ export const ContentWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     margin: 12px 0 12px 0;
+    height: 400px;
+    overflow-y: auto;
+`;
+
+export const TextWrapper = styled.div`
+    overflow-y: auto;
 `;
 
 export const Image = styled.img`

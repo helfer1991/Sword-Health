@@ -31,7 +31,7 @@ export const MainArticleCard: React.FC<ArticleProps> = ({ data }) => {
                     <Title>{data.title}</Title>
                     <Description>{data.description}</Description>
                 </div>
-                {getUser()?.role === 'User' && <Button onClick={handleClick}>Read more</Button>}
+                {getUser()?.role === 'User' && <Button onClick={handleClick} data-testid="read-more-button" type="button">Read more</Button>}
                 <Modal show={show} onClose={() => setShow(false)} data={data} />
             </LeftWrapper>
             <Image src={imgSrc} alt="article-image" />

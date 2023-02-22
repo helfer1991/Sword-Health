@@ -5,7 +5,7 @@ type AuthProviderProps = {
     children: React.ReactNode;
 }
 
-type User = {
+export type User = {
     username: string;
     password: string;
     role: string;
@@ -16,7 +16,7 @@ type CredentialsProps = {
     password: string;
 }
 
-type AuthContextType = {
+export type AuthContextType = {
     data: User[];
     loginUser: ( credentials: CredentialsProps ) => boolean;
     logout: () => void;

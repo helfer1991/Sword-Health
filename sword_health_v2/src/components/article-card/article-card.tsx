@@ -33,7 +33,7 @@ export const ArticleCard: React.FC<ArticleProps> = ({ data, variant = 'A' }) => 
                     <Title>{data.title}</Title>
                     <Description>{data.description}</Description>
                 </div>
-                {getUser()?.role === 'User' && <Button onClick={handleClick}>Read more</Button>}
+                {getUser()?.role === 'User' && <Button onClick={handleClick} data-testid="read-more-button">Read more</Button>}
                 <Modal show={show} onClose={() => setShow(false)} data={data} />
             </RightWrapper>
         </Container>

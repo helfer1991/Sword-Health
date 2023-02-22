@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLogin } from '../../hooks/useLogin';
 import { useNavigate} from 'react-router-dom';
 
-import { Container, Wrapper, Title, Description, ContentWrapper, Image, ButtonWrapper, Button } from './styles';
+import { Container, Wrapper, Title, Description, ContentWrapper, TextWrapper, Image, ButtonWrapper, Button } from './styles';
 import image from '../../assets/logo.png';
 
 type ArticleProps = {
@@ -38,22 +38,22 @@ export const Modal: React.FC<ArticleProps> = ({ data, show, onClose }) => {
     }
 
     return (show ?
-        <Container onClick={onClose}>
+        <Container onClick={onClose} data-testid="article-modal">
             <Wrapper onClick={e => e.stopPropagation()}>
                 <Title>{data.title}</Title>
                 <hr/>
                 <ContentWrapper>
-                <span>
-                    <Description>{data.description}</Description>
-                    <Description>{data.details}</Description>
-                </span>
+                    <TextWrapper>
+                            <Description>{data.description}</Description>
+                            <Description>{data.details}</Description>
+                    </TextWrapper>
                 <Image src={imgSrc} alt="modal-image" />
                 </ContentWrapper>
                 <hr/>
                 <ButtonWrapper>
-                    <Button onClick={onClose}>Close</Button>
-                    <Button onClick={handleClick}>{isBookmarked ? 'Unbookmark' : 'Bookmark'}</Button>
-                    {getUser()?.username === data.username && <Button onClick={handleEdit}>Edit</Button>}
+                    <Button onClick={onClose} data-testid="close-button">Close</Button>
+                    <Button onClick={handleClick} data-testid="bookmark-button">{isBookmarked ? 'Unbookmark' : 'Bookmark'}</Button>
+                    {getUser()?.username === data.username && <Button onClick={handleEdit} data-testid="edit-button">Edit</Button>}
                 </ButtonWrapper>
             </Wrapper>
         </Container>

@@ -30,7 +30,11 @@ export const Title = styled.h6`
 
 export const Description = styled.p`
     font-size: 12px;
-    line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 `;
 
 export const Button = styled.button`
